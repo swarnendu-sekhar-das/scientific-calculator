@@ -4,6 +4,23 @@ import java.util.Scanner;
 
 public class Calculator {
 
+    public static double add(double a, double b) {
+        return a + b;
+    }
+
+    public static double subtract(double a, double b) {
+        return a - b;
+    }
+
+    public static double multiply(double a, double b) {
+        return a * b;
+    }
+
+    public static double divide(double a, double b) {
+        if (b == 0) throw new ArithmeticException("Cannot divide by zero");
+        return a / b;
+    }
+
     public static double squareRoot(double x) {
         if (x < 0) throw new IllegalArgumentException("Negative input");
         return Math.sqrt(x);
@@ -31,31 +48,85 @@ public class Calculator {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Scientific Calculator");
-        System.out.println("1. Square Root");
-        System.out.println("2. Factorial");
-        System.out.println("3. Natural Log");
-        System.out.println("4. Power");
+        while (true) {
 
-        int choice = sc.nextInt();
+            System.out.println("\n===== Scientific Calculator =====");
+            System.out.println("1. Addition");
+            System.out.println("2. Subtraction");
+            System.out.println("3. Multiplication");
+            System.out.println("4. Division");
+            System.out.println("5. Square Root");
+            System.out.println("6. Factorial");
+            System.out.println("7. Natural Log");
+            System.out.println("8. Power");
+            System.out.println("9. Exit");
 
-        switch (choice) {
-            case 1:
-                System.out.println(squareRoot(sc.nextDouble()));
-                break;
-            case 2:
-                System.out.println(factorial(sc.nextInt()));
-                break;
-            case 3:
-                System.out.println(naturalLog(sc.nextDouble()));
-                break;
-            case 4:
-                double base = sc.nextDouble();
-                double exp = sc.nextDouble();
-                System.out.println(power(base, exp));
-                break;
-            default:
-                System.out.println("Invalid choice");
+            System.out.print("Choose option: ");
+            int choice = sc.nextInt();
+
+            try {
+                switch (choice) {
+
+                    case 1:
+                        System.out.print("Enter two numbers: ");
+                        System.out.println("Result: " +
+                                add(sc.nextDouble(), sc.nextDouble()));
+                        break;
+
+                    case 2:
+                        System.out.print("Enter two numbers: ");
+                        System.out.println("Result: " +
+                                subtract(sc.nextDouble(), sc.nextDouble()));
+                        break;
+
+                    case 3:
+                        System.out.print("Enter two numbers: ");
+                        System.out.println("Result: " +
+                                multiply(sc.nextDouble(), sc.nextDouble()));
+                        break;
+
+                    case 4:
+                        System.out.print("Enter two numbers: ");
+                        System.out.println("Result: " +
+                                divide(sc.nextDouble(), sc.nextDouble()));
+                        break;
+
+                    case 5:
+                        System.out.print("Enter number: ");
+                        System.out.println("Result: " +
+                                squareRoot(sc.nextDouble()));
+                        break;
+
+                    case 6:
+                        System.out.print("Enter integer: ");
+                        System.out.println("Result: " +
+                                factorial(sc.nextInt()));
+                        break;
+
+                    case 7:
+                        System.out.print("Enter number: ");
+                        System.out.println("Result: " +
+                                naturalLog(sc.nextDouble()));
+                        break;
+
+                    case 8:
+                        System.out.print("Enter base and exponent: ");
+                        System.out.println("Result: " +
+                                power(sc.nextDouble(), sc.nextDouble()));
+                        break;
+
+                    case 9:
+                        System.out.println("Exiting Calculator...");
+                        sc.close();
+                        System.exit(0);
+
+                    default:
+                        System.out.println("Invalid choice");
+                }
+
+            } catch (Exception e) {
+                System.out.println("Error: " + e.getMessage());
+            }
         }
     }
 }
