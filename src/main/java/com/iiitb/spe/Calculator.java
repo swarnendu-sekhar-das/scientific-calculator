@@ -22,12 +22,12 @@ public class Calculator {
     }
 
     public static double squareRoot(double x) {
-        if (x < 0) throw new IllegalArgumentException("Negative input");
+        if (x < 0) throw new IllegalArgumentException("Invalid input");
         return Math.sqrt(x);
     }
 
     public static long factorial(int x) {
-        if (x < 0) throw new IllegalArgumentException("Negative input");
+        if (x < 0) throw new IllegalArgumentException("Invalid input");
         long result = 1;
         for (int i = 1; i <= x; i++) {
             result *= i;
@@ -116,7 +116,7 @@ public class Calculator {
                         break;
 
                     case 9:
-                        System.out.println("Exiting Calculator...");
+                        System.out.println("Exiting Calculator!");
                         sc.close();
                         System.exit(0);
 
