@@ -1,9 +1,8 @@
 pipeline {
-    agent {
-            docker {
-                image 'maven:3.9.6-eclipse-temurin-17'
-                args '-v /var/run/docker.sock:/var/run/docker.sock'
-            }
+    agent any
+
+    tools {
+            maven 'Maven-3'
     }
 
     stages {
