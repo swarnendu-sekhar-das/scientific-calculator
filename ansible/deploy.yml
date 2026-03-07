@@ -15,5 +15,5 @@
       command: /usr/local/bin/docker rm calculator
       ignore_errors: yes
 
-    - name: Run calculator container
-      command: /usr/local/bin/docker run -dit --name calculator ssd31/scientific-calculator:latest java -jar calculator.jar
+    - name: Create calculator container
+      command: /usr/local/bin/docker create -it --name calculator ssd31/scientific-calculator:latest
