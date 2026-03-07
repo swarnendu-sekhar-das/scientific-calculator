@@ -49,7 +49,7 @@ pipeline {
         stage('Ansible Deployment') {
             steps {
                 sh '''
-                source $WORKSPACE/.local/ansible-env/bin/activate
+                source /Users/swarnendusekhardas/SSD_Files/Workspace/.local/ansible-env/bin/activate
                 ansible-playbook -i ansible/inventory.ini ansible/deploy.yml
                 '''
             }
