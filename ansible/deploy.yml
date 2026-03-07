@@ -16,4 +16,4 @@
       ignore_errors: yes
 
     - name: Run calculator container
-      command: docker run -dit --name calculator ssd31/scientific-calculator:latest java -jar calculator.jar
+      command: /usr/local/bin/docker run -dit --name calculator ssd31/scientific-calculator:latest java -jar calculator.jar
