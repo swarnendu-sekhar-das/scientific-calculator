@@ -15,5 +15,5 @@
       command: /usr/local/bin/docker rm calculator
       ignore_errors: yes
 
-    - name: Running calculator container
+    - name: Run calculator container
       command: /usr/local/bin/docker run -d --name calculator ssd31/scientific-calculator:latest tail -f /dev/null
