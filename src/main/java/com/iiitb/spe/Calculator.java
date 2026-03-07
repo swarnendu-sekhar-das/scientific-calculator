@@ -116,7 +116,7 @@ public class Calculator {
                         break;
 
                     case 9:
-                        System.out.println("Exiting Calculator!");
+                        System.out.println("Exited Calculator!");
                         sc.close();
                         System.exit(0);
 
