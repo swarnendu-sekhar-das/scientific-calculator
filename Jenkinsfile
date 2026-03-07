@@ -46,7 +46,7 @@ pipeline {
                 }
             }
         }
-        stage('Deploy with Ansible') {
+        stage('Ansible Deployment') {
             steps {
                 sh '''
                 source $WORKSPACE/.local/ansible-env/bin/activate
