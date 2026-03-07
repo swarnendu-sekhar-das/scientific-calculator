@@ -1,0 +1,19 @@
+---
+- hosts: calculator
+  gather_facts: false
+
+  tasks:
+
+    - name: Pull latest docker image
+      command: /usr/local/bin/docker pull ssd31/scientific-calculator:latest
+
+    - name: Stop existing container
+      command: /usr/local/bin/docker stop calculator
+      ignore_errors: yes
+
+    - name: Remove old container
+      command: /usr/local/bin/docker rm calculator
+      ignore_errors: yes
+
+    - name: Run calculator container
+      command: /usr/local/bin/docker run -d --name calculator ssd31/scientific-calculator:latest

@@ -46,6 +46,14 @@ pipeline {
                 }
             }
         }
+        stage('Deploy with Ansible') {
+            steps {
+                sh '''
+                source $WORKSPACE/.local/ansible-env/bin/activate
+                ansible-playbook -i ansible/inventory.ini ansible/deploy.yml
+                '''
+            }
+        }
     }
 
     post {
